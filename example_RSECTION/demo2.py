@@ -62,11 +62,10 @@ if __name__ == '__main__':
 
     StressPoint(1, -0.3, 0.75)
     StressPoint.Standard(2, [0.6, 0], 1)
-    # StressPoint.OnElement(3, 1, ElementSide.ELEMENT_SIDE_MIDDLE, PointReferenceType.REFERENCE_TYPE_L, [True, 0.4])
-    # StressPoint.OnLine(4, 1, PointReferenceType.REFERENCE_TYPE_L, [True, 0.4])
-
+    StressPoint.OnLine(3, 1, PointReferenceType.REFERENCE_TYPE_L, [True, 0.4])
+    # StressPoint.OnElement(4, 1, ElementSide.ELEMENT_SIDE_MIDDLE, PointReferenceType.REFERENCE_TYPE_L, [True, 0.4])
 
     Model.clientModel.service.finish_modification()
 
-    Calculate_all()
+    # Calculate_all()
 

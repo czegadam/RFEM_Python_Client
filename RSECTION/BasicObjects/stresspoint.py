@@ -114,11 +114,14 @@ class StressPoint():
         # Stress Point No.
         clientObject.no = no
 
+        # Coodinaates System type
+        clientObject.coordinate_system_type = PointCoordinateSystemType.COORDINATE_SYSTEM_CARTESIAN.name
+
         # Stress Point Type
         clientObject.definition_type = StressPointType.TYPE_ON_LINE.name
 
         # Line No.
-        clientObject.on_line_reference_line = line_no
+        clientObject.on_line_reference_line = int(line_no)
 
         # Point Reference and Distance between Point and Start Point
         clientObject.reference_type = point_reference.name
