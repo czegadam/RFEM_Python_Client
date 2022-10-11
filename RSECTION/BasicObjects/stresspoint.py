@@ -97,6 +97,7 @@ class StressPoint():
                  line_no: int = 1,
                  point_reference = PointReferenceType.REFERENCE_TYPE_L,
                  parameters = [True, 0.5],
+                 coordinates: list = None,
                  comment: str = '',
                  params: dict = None,
                  model = Model):
@@ -121,7 +122,7 @@ class StressPoint():
         clientObject.definition_type = StressPointType.TYPE_ON_LINE.name
 
         # Line No.
-        clientObject.on_line_reference_line = int(line_no)
+        clientObject.on_line_reference_line = line_no
 
         # Point Reference and Distance between Point and Start Point
         clientObject.reference_type = point_reference.name
@@ -136,6 +137,9 @@ class StressPoint():
 
         else:
             clientObject.distance_from_start_absolute = parameters[1]
+
+        clientObject.coordinate_1 = coordinates[0]
+        clientObject.coordinate_2 = coordinates[1]
 
         # Comment
         clientObject.comment = comment
@@ -154,6 +158,7 @@ class StressPoint():
                  element_side = ElementSide.ELEMENT_SIDE_MIDDLE,
                  point_reference = PointReferenceType.REFERENCE_TYPE_L,
                  parameters = [True, 0.5],
+                 coordinates: list = None,
                  comment: str = '',
                  params: dict = None,
                  model = Model):
@@ -191,6 +196,9 @@ class StressPoint():
 
         else:
             clientObject.distance_from_start_absolute = parameters[1]
+
+        clientObject.coordinate_1 = coordinates[0]
+        clientObject.coordinate_2 = coordinates[1]
 
         # Comment
         clientObject.comment = comment
