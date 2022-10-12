@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+
 baseName = os.path.basename(__file__)
 dirName = os.path.dirname(__file__)
 print('basename:    ', baseName)
@@ -18,11 +19,12 @@ from RSECTION.BasicObjects.part import Part
 from RSECTION.BasicObjects.opening import Opening
 from RSECTION.BasicObjects.element import Element
 from RSECTION.BasicObjects.stresspoint import StressPoint
-from RSECTION.enums import ElementArcAlphaAdjustmentTarget, ElementSide, LineArcAlphaAdjustmentTarget, PointReferenceType
+from RSECTION.LoadCasesAndCombinations.loadcase import LoadCase
+from RSECTION.enums import ActionCategoryType, ElementArcAlphaAdjustmentTarget, ElementSide, LineArcAlphaAdjustmentTarget, PointReferenceType
 
 if __name__ == '__main__':
 
-    Model(True, "demo2") # crete new model called Demo
+    Model(True, "Demo2") # crete new model called Demo
 
     Model.clientModel.service.begin_modification()
 
@@ -65,6 +67,8 @@ if __name__ == '__main__':
     StressPoint.OnLine(3, 1, PointReferenceType.REFERENCE_TYPE_L, [True, 0.25], [1, 0.5])
     StressPoint.OnElement(4, 1, ElementSide.ELEMENT_SIDE_MIDDLE, PointReferenceType.REFERENCE_TYPE_L, [True, 0.75], [-0.75, 0.375])
     # StressPoint.OnElement(5, 1, ElementSide.ELEMENT_SIDE_LEFT, PointReferenceType.REFERENCE_TYPE_L, [True, 0.75], [-0.5, 0.375])
+
+    LoadCase(1, ActionCategoryType.ACTION_CATEGORY_PERMANENT_IMPOSED_GQ, True, 'try')
 
     Model.clientModel.service.finish_modification()
 
