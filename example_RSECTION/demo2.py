@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from ast import Load
 import os
 import sys
 
@@ -20,6 +21,7 @@ from RSECTION.BasicObjects.opening import Opening
 from RSECTION.BasicObjects.element import Element
 from RSECTION.BasicObjects.stresspoint import StressPoint
 from RSECTION.LoadCasesAndCombinations.loadcase import LoadCase
+from RSECTION.LoadCasesAndCombinations.loadcombination import LoadCombination
 from RSECTION.enums import ActionCategoryType, ElementArcAlphaAdjustmentTarget, ElementSide, LineArcAlphaAdjustmentTarget, PointReferenceType
 
 if __name__ == '__main__':
@@ -69,6 +71,12 @@ if __name__ == '__main__':
     # StressPoint.OnElement(5, 1, ElementSide.ELEMENT_SIDE_LEFT, PointReferenceType.REFERENCE_TYPE_L, [True, 0.75], [-0.5, 0.375])
 
     LoadCase(1, ActionCategoryType.ACTION_CATEGORY_PERMANENT_IMPOSED_GQ, True, 'try')
+    LoadCase(2, ActionCategoryType.ACTION_CATEGORY_PERMANENT_G)
+    LoadCase(3, ActionCategoryType.ACTION_CATEGORY_PRESTRESS_P)
+
+    LoadCombination(1, [[1, 1], [1.5, 2]])
+    LoadCombination(2, [[1.5, 1], [2.5, 2]], [True, 'Modified'])
+    LoadCombination(3, [[1.5, 2], [2.1, 3], [0.6, 1]], [True, 'combo'])
 
     Model.clientModel.service.finish_modification()
 
