@@ -1,4 +1,4 @@
-from RFEM.initModel import Model, clearAtributes, ConvertToDlString
+from RFEM.initModel import Model, clearAttributes, ConvertToDlString
 
 class ConcreteUltimateConfiguration():
 
@@ -31,14 +31,15 @@ class ConcreteUltimateConfiguration():
         clientObject = model.clientModel.factory.create('ns0:uls_configuration')
 
         # Clears object atributes | Sets all atributes to None
-        clearAtributes(clientObject)
+        clearAttributes(clientObject)
 
         # Concrete Durability No.
         clientObject.no = no
 
         # User Defined Name
-        clientObject.user_defined_name_enabled = True
-        clientObject.name = name
+        if name:
+            clientObject.user_defined_name_enabled = True
+            clientObject.name = name
 
         # Assigned Members
         clientObject.assigned_to_members = ConvertToDlString(members)

@@ -1,4 +1,4 @@
-from RFEM.initModel import Model, clearAtributes, ConvertToDlString
+from RFEM.initModel import Model, clearAttributes, ConvertToDlString
 from RFEM.enums import DurabilityStructuralClassType, DurabilityAllowanceDeviationType
 
 class ConcreteDurability():
@@ -43,14 +43,15 @@ class ConcreteDurability():
         clientObject = model.clientModel.factory.create('ns0:concrete_durability')
 
         # Clears object atributes | Sets all atributes to None
-        clearAtributes(clientObject)
+        clearAttributes(clientObject)
 
         # Concrete Durability No.
         clientObject.no = no
 
         # User Defined Name
-        clientObject.user_defined_name_enabled = True
-        clientObject.name = name
+        if name:
+            clientObject.user_defined_name_enabled = True
+            clientObject.name = name
 
         # Assigned Members
         clientObject.members = ConvertToDlString(members_no)

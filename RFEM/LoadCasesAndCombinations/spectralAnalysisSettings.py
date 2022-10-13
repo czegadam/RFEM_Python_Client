@@ -1,4 +1,4 @@
-from RFEM.initModel import Model, clearAtributes, GetAddonStatus, SetAddonStatus
+from RFEM.initModel import Model, clearAttributes, GetAddonStatus, SetAddonStatus
 from RFEM.enums import DirectionalComponentCombinationRule, PeriodicResponseCombinationRule, CqsDampingRule, AddOn
 
 class SpectralAnalysisSettings():
@@ -42,14 +42,15 @@ class SpectralAnalysisSettings():
         clientObject = model.clientModel.factory.create('ns0:spectral_analysis_settings')
 
         # Clears object atributes | Sets all atributes to None
-        clearAtributes(clientObject)
+        clearAttributes(clientObject)
 
         # Static Analysis Settings No.
         clientObject.no = no
 
         # Name
-        clientObject.name = name
-        clientObject.user_defined_name_enabled = True
+        if name:
+            clientObject.name = name
+            clientObject.user_defined_name_enabled = True
 
         # Periodic Combination
         clientObject.combination_rule_for_periodic_responses = periodic_combination.name
