@@ -8,7 +8,7 @@ print('basename:    ', baseName)
 print('dirname:     ', dirName)
 sys.path.append(dirName + r'/../..')
 
-from RFEM.enums import NodalSupportType, LoadDirectionType
+from RFEM.enums import AddOn, NodalSupportType, LoadDirectionType
 from RFEM.initModel import Model, Calculate_all
 from RFEM.BasicObjects.material import Material
 from RFEM.BasicObjects.section import Section
@@ -19,12 +19,15 @@ from RFEM.LoadCasesAndCombinations.staticAnalysisSettings import StaticAnalysisS
 from RFEM.LoadCasesAndCombinations.loadCase import LoadCase
 from RFEM.Loads.nodalLoad import NodalLoad
 from RFEM.Calculate.meshSettings import GetModelInfo
+from RFEM.initModel import SetAddonStatus
+from RFEM.ConcreteDesign.ConcreteUltimateConfigurations import ConcreteUltimateConfiguration
 
 if __name__ == '__main__':
     l = float(input('Length of the cantilever in m: '))
     f = float(input('Force in kN: '))
 
     Model(True, "Demo1") # crete new model called Demo1
+    SetAddonStatus(Model.clientModel, AddOn.concrete_design_active)
     Model.clientModel.service.begin_modification()
 
 
@@ -49,6 +52,9 @@ if __name__ == '__main__':
     Model.clientModel.service.finish_modification()
 
     Calculate_all()
+
+    ConcreteUltimateConfiguration(1, 'ULS', 'All')
+    ConcreteUltimateConfiguration(2, 'New', '1')
 
     # model status
     modelStatus = GetModelInfo()
