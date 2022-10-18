@@ -32,13 +32,14 @@ if __name__ == '__main__':
 
 
     Material(1, 'S235')
+    Material(2, 'C30/37')
 
-    Section(1, 'IPE 200')
+    Section(1, 'IPE 200', 2)
 
     Node(1, 0.0, 0.0, 0.0)
     Node(2, l, 0.0, 0.0)
 
-    Member(1, 1, 2, 0.0, 1, 1)
+    Member(1, 1, 2, 0.0, 1, 1,)
 
     NodalSupport(1, '1', NodalSupportType.FIXED)
 
