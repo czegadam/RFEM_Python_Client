@@ -8,9 +8,9 @@ class ConcreteUltimateConfiguration():
                 no: int = 1,
                 name: str = 'ULS',
                 members: str = 'All',
-                member_sets: str = '',
-                surfaces: str = '',
-                surface_sets: str = '',
+                member_sets: str = 'All',
+                surfaces: str = 'All',
+                surface_sets: str = 'All',
                 nodes: str = '',
                 comment: str = '',
                 params: dict = None,
@@ -49,7 +49,7 @@ class ConcreteUltimateConfiguration():
 
         else:
             clientObject.assigned_to_all_members = False
-            clientObject.assigned_to_members = 1
+            clientObject.assigned_to_members = ConvertToDlString(members)
 
         # Assigned Member Sets
         if member_sets == 'All':

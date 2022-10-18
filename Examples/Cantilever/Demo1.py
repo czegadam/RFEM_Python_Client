@@ -51,10 +51,11 @@ if __name__ == '__main__':
     NodalLoad(1, 1, '2', LoadDirectionType.LOAD_DIRECTION_GLOBAL_Z_OR_USER_DEFINED_W, f*1000)
     Model.clientModel.service.finish_modification()
 
+    ConcreteUltimateConfiguration(1, 'ULS', '1', 'All', '', '', '1 2')
+
     Calculate_all()
 
-    ConcreteUltimateConfiguration(1, 'ULS', 'All')
-    ConcreteUltimateConfiguration(2, 'New', '1')
+
 
     # model status
     modelStatus = GetModelInfo()
