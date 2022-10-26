@@ -1,7 +1,18 @@
+from msilib.schema import Feature
 from sklearn import svm
 from sklearn.inspection import DecisionBoundaryDisplay
 import matplotlib.pyplot as plt
 import numpy as np
+
+
+"""
+This is a different Version of svm_classifier_singlespan_beam_2D.py
+as a class.
+
+
+FeatureVector and InputVector from the DataPreparaton need to be saved in some way.
+
+"""
 
 
 class EstimateCS():
@@ -20,6 +31,15 @@ class EstimateCS():
 
         '''
 
+        """
+
+        Here should the result from dataPrepOptimization.py go
+
+        x = InputVector
+        y = FeatureVector
+
+        """
+
         x = np.array([[15, 7], [14, 13], [5, 5], [23, 3], [2, 2]])
         y = ['IPE 300', 'IPE 200', 'IPE 700', 'IPE 500', 'IPE 120']
 
@@ -33,6 +53,7 @@ class EstimateCS():
         #user input for their system
         d1 = input("Please type length: ")
         d2 = input("Please type loading: ")
+
         """
 
         #predicted section
@@ -50,8 +71,10 @@ class EstimateCS():
             xlabel = None,
             ylabel = None)
 
-        """It would be nice to show the user input point on the colored map
+        #It would be nice to show the user input point on the colored map
         plt.scatter(X0, X1, c="red", s=20, edgecolors="k")
-        plt.show()"""
+        plt.show()
+
+
         return PredictedCS[0]
 
