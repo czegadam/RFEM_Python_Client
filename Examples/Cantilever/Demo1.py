@@ -8,8 +8,8 @@ print('basename:    ', baseName)
 print('dirname:     ', dirName)
 sys.path.append(dirName + r'/../..')
 
-from RFEM.enums import NodalSupportType, LoadDirectionType
-from RFEM.initModel import Model, Calculate_all
+from RFEM.enums import *
+from RFEM.initModel import Model, Calculate_all, SetAddonStatus
 from RFEM.BasicObjects.material import Material
 from RFEM.BasicObjects.section import Section
 from RFEM.BasicObjects.node import Node
@@ -18,6 +18,7 @@ from RFEM.TypesForNodes.nodalSupport import NodalSupport
 from RFEM.LoadCasesAndCombinations.staticAnalysisSettings import StaticAnalysisSettings
 from RFEM.LoadCasesAndCombinations.loadCase import LoadCase
 from RFEM.Loads.nodalLoad import NodalLoad
+from RFEM.TypesForSteelDesign.SteelMemberLocalSectionReduction import SteelMemberLocalSectionReduction
 from RFEM.Calculate.meshSettings import GetModelInfo
 
 if __name__ == '__main__':
@@ -26,6 +27,7 @@ if __name__ == '__main__':
 
     Model(True, "Demo1") # crete new model called Demo1
     Model.clientModel.service.begin_modification()
+    SetAddonStatus(Model.clientModel, AddOn.steel_design_active)
 
 
     Material(1, 'S235')
@@ -46,6 +48,8 @@ if __name__ == '__main__':
     LoadCase(1, 'Self-Weight', [True, 0.0, 0.0, 1.0])
 
     NodalLoad(1, 1, '2', LoadDirectionType.LOAD_DIRECTION_GLOBAL_Z_OR_USER_DEFINED_W, f*1000)
+
+    SteelMemberLocalSectionReduction()
     Model.clientModel.service.finish_modification()
 
     Calculate_all()
