@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     NodalLoad(1, 1, '2', LoadDirectionType.LOAD_DIRECTION_GLOBAL_Z_OR_USER_DEFINED_W, f*1000)
 
-    SteelMemberLocalSectionReduction()
+    SteelMemberLocalSectionReduction(1, '1', '', [[SteelMemberLocalSectionReductionType.REDUCTION_COMPONENT_TYPE_DESIGN_PARAMETERS, 1.0, False, FastenerDefinitionType.DEFINITION_TYPE_ABSOLUTE, 0.1]])
     Model.clientModel.service.finish_modification()
 
     Calculate_all()
