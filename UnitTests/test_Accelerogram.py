@@ -21,15 +21,17 @@ def test_accelerogram():
 
     # create user defined accelerogram
     Accelerogram(1, 'User-Defined Accelerogram', user_defined_accelerogram = [[0, 0.1, 0.2, 9.81], [20, 0.3, 0.5, 12.5]])
-    #Accelerogram.FromLibrary()
+    Accelerogram.FromLibrary(no = 2, library_id= 939)
     Model.clientModel.service.finish_modification()
 
     acg_1 = Model.clientModel.service.get_accelerogram(1)
-    #rsp_3 = Model.clientModel.service.get_response_spectrum(3)
+    acg_2 = Model.clientModel.service.get_accelerogram(2)
 
     assert acg_1.no == 1
-    #assert rsp_3.user_defined_response_spectrum_period_step == 0.12
     assert round(acg_1.user_defined_accelerogram[0][0]['row']['acceleration_x'], 2) == 0.1
     assert round(acg_1.user_defined_accelerogram[0][1]['row']['time'], 2) == 20
+
+    assert acg_2.name == 'Aftershock of Kocaeli earthquake, Turkey - Messstation: Afyon-Bayindirlik ve Iskan Mudurlugu'
+    assert round(acg_2.user_defined_accelerogram[0][0]['row']['acceleration_x'], 8) == -3.242e-05
 
 test_accelerogram()
