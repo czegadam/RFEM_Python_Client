@@ -2320,3 +2320,9 @@ class ResponseSpectrumDefinitionType(Enum):
     Response Spectrum Definition Type
     '''
     ACCORDING_TO_STANDARD, GENERATED_FROM_ACCELEROGRAM, USER_DEFINED, USER_DEFINED_IN_G_FACTOR = range(4)
+
+class AccelerogramDefinitionType(Enum):
+    '''
+    Accelerogram Definition Type
+    '''
+    FROM_LIBRARY, USER_DEFINED = range(2)
