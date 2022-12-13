@@ -33,5 +33,3 @@ def test_accelerogram():
 
     assert acg_2.name == 'Aftershock of Kocaeli earthquake, Turkey - Messstation: Afyon-Bayindirlik ve Iskan Mudurlugu'
     assert round(acg_2.user_defined_accelerogram[0][0]['row']['acceleration_x'], 8) == -3.242e-05
-
-test_accelerogram()
