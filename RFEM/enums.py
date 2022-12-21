@@ -2320,3 +2320,21 @@ class ResponseSpectrumDefinitionType(Enum):
     Response Spectrum Definition Type
     '''
     ACCORDING_TO_STANDARD, GENERATED_FROM_ACCELEROGRAM, USER_DEFINED, USER_DEFINED_IN_G_FACTOR = range(4)
+
+class TimberServiceConditionsMoistureClass(Enum):
+    '''
+    Types of timber moisture service conditions
+    '''
+    TIMBER_MOISTURE_SERVICE_CONDITION_TYPE_DRY, TIMBER_MOISTURE_SERVICE_CONDITION_TYPE_MOIST, TIMBER_MOISTURE_SERVICE_CONDITION_TYPE_VERY_DRY, TIMBER_MOISTURE_SERVICE_CONDITION_TYPE_WET = range(4)
+
+class TimberServiceConditionsTreatmentClass(Enum):
+    '''
+    Types of timber treamtment service conditions
+    '''
+    TREATMENT_TYPE_FIRE_RETARDANT, TREATMENT_TYPE_NONE, TREATMENT_TYPE_PRESERVATIVE = range(3)
+
+class TimberServiceConditionsTemperatureClass(Enum):
+    '''
+    Types of timber temperature service conditions
+    '''
+    TEMPERATURE_TYPE_EQUAL_TO_50, TEMPERATURE_TYPE_LESS_OR_EQUAL_100, TEMPERATURE_TYPE_LESS_OR_EQUAL_35, TEMPERATURE_TYPE_RANGE_100_125, TEMPERATURE_TYPE_RANGE_125_150, TEMPERATURE_TYPE_RANGE_35_50, TEMPERATURE_TYPE_TEMPERATURE_ZONE_1, TEMPERATURE_TYPE_TEMPERATURE_ZONE_2, TEMPERATURE_TYPE_TEMPERATURE_ZONE_3 = range (9)
