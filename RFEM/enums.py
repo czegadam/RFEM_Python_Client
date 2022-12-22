@@ -2320,3 +2320,9 @@ class ResponseSpectrumDefinitionType(Enum):
     Response Spectrum Definition Type
     '''
     ACCORDING_TO_STANDARD, GENERATED_FROM_ACCELEROGRAM, USER_DEFINED, USER_DEFINED_IN_G_FACTOR = range(4)
+
+class TimberMoistureClassMoistureClass(Enum):
+    '''
+    Moisture classes to set moisture class
+    '''
+    TIMBER_MOISTURE_CLASS_TYPE_1, TIMBER_MOISTURE_CLASS_TYPE_2, TIMBER_MOISTURE_CLASS_TYPE_3 = range(3)
